@@ -92,7 +92,7 @@ def extract_keypoints_normalize(results):
     return np.concatenate([pose, left_hand, right_hand])
 
 def load_lstm_model():
-    model = load_model('MODEL 1\model\model_dataset_11.h5')  
+    model = load_model('model\model_dataset_11.h5')  
     return model
 
 lstm_model = load_lstm_model()
