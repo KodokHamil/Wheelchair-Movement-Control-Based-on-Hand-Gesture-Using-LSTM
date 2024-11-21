@@ -1,6 +1,6 @@
 # Wheelchair-Movement-Control-Based-on-Hand-Gesture-Using-LSTM
  
-gunakan model .h5 dalam folder model, jangan .keras digunakan karena model yang dihasilkan kurang baik.
+gunakan model .h5 dalam folder model, jangan gunakan .keras karena model yang dihasilkan kurang baik.
 
 hasil accuracy, loss, dan confusion matrix disimpan dalam folder output.
 
