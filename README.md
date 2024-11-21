@@ -1,2 +1,7 @@
 # Wheelchair-Movement-Control-Based-on-Hand-Gesture-Using-LSTM
  
+gunakan model .h5 dalam folder model, .keras jangan digunakan karena model yang dihasilkan kurang baik
+hasil accuracy, loss, dan confusion matrix disimpan dalam folder output
+
+untuk program utamanya ada di nopal_Modifier_Dataset_Collecting.ipynb dan nopal_Modifier_Training_Model.ipynb
+gunakan program delete dataset.py untuk menghapus beberapa sequence dataset jika dirasa terlalu banyak sequence dalam dataset
