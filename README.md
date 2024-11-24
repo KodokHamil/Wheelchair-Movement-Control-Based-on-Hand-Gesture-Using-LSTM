@@ -1,4 +1,8 @@
-# Wheelchair-Movement-Control-Based-on-Hand-Gesture-Using-LSTM
+# Install library
+to install library needed run this:
+```pip install -r requirements.txt```
+
+# Tips
  
 gunakan model .h5 dalam folder model, jangan gunakan .keras karena model yang dihasilkan kurang baik.
 
