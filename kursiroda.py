@@ -33,7 +33,7 @@ class SocketCommunicator:
             self.socket.send(data)
 
 s = SocketCommunicator(host, port)
-s.send('3\n'.encode('utf-8'))
+s.send('2\n'.encode('utf-8'))
 
 mp_holistic = mp.solutions.holistic
 mp_drawing = mp.solutions.drawing_utils
@@ -97,7 +97,7 @@ def load_lstm_model():
 
 lstm_model = load_lstm_model()
 
-cap = cv.VideoCapture(0)
+cap = cv.VideoCapture(1)
 cap.set(cv.CAP_PROP_FRAME_WIDTH, 1280)  # Lebar
 cap.set(cv.CAP_PROP_FRAME_HEIGHT, 720)  # Tinggi
 
