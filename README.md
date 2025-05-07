@@ -3,9 +3,9 @@
 gunakan model "gesture_recognition_model_4.h5" model terbaik
 
 List lengkap library yang digunakan:
--cv2 (OpenCV)
--numpy
--os
+-cv2 (OpenCV) \n
+-numpy\n
+-os\n
 -mediapipe
 -matplotlib.pyplot
 -seaborn
