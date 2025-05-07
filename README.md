@@ -1,11 +1,15 @@
 # Wheelchair-Movement-Control-Based-on-Hand-Gesture-Using-LSTM
  
-gunakan model .h5 dalam folder model, jangan gunakan .keras karena model yang dihasilkan kurang baik.
+gunakan model "gesture_recognition_model_4.h5" model terbaik
 
-hasil accuracy, loss, dan confusion matrix disimpan dalam folder output.
-
-untuk program utamanya ada di nopal_Modifier_Dataset_Collecting.ipynb dan nopal_Modifier_Training_Model.ipynb.
-
-gunakan program delete dataset.py untuk menghapus beberapa sequence dataset jika dirasa terlalu banyak sequence dalam dataset.
-
-gunakan program ver2hitungfps.py untuk menjalankannya ke kursi roda, jangan lupa untuk ganti model sesuai model yang mau digunakan.
+List lengkap library yang digunakan:
+-cv2 (OpenCV)
+-numpy
+-os
+-mediapipe
+-matplotlib.pyplot
+-seaborn
+-tensorflow
+-sklearn
+-socket
+-time
