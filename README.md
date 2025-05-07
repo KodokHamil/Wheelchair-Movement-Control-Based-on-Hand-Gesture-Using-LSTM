@@ -52,6 +52,6 @@ Jika sistem sudah berjalan dengan baik, jalankan `kursiroda.py` untuk menghubung
 ---
 
 ## Penulis
-- **Nama:** [Nama Kamu]
-- **Email:** [Email Kamu]
-- **GitHub:** [Link GitHub Kamu]
+- **Nama:** Andrya Muhammad Naufal
+- **Email:** andryanaufal@gmail.com
+- **GitHub:** https://github.com/KodokHamil
