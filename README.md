@@ -11,4 +11,4 @@ gunakan program delete dataset.py untuk menghapus beberapa sequence dataset jika
 gunakan program ver2hitungfps.py untuk menjalankannya ke kursi roda, jangan lupa untuk ganti model sesuai model yang mau digunakan.
 
 
-#go to finished branch
+# go to finished branch
