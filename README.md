@@ -9,3 +9,6 @@ untuk program utamanya ada di nopal_Modifier_Dataset_Collecting.ipynb dan nopal_
 gunakan program delete dataset.py untuk menghapus beberapa sequence dataset jika dirasa terlalu banyak sequence dalam dataset.
 
 gunakan program ver2hitungfps.py untuk menjalankannya ke kursi roda, jangan lupa untuk ganti model sesuai model yang mau digunakan.
+
+
+#go to finished branch
