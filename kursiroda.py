@@ -4,6 +4,8 @@ import mediapipe as mp
 import tensorflow as tf
 import socket
 import time
+import csv
+import datetime
 
 # Koneksi soket untuk mengirim data ke ESP32
 host = "192.168.4.1"
@@ -33,7 +35,7 @@ class SocketCommunicator:
 s = SocketCommunicator(host, port)
 
 # Load model
-model = tf.keras.models.load_model('gesture_recognition_model_4.h5')
+model = tf.keras.models.load_model('gesture_recognition_model_var3.h5')
 
 # MediaPipe Hands
 mp_hands = mp.solutions.hands
@@ -66,6 +68,12 @@ cap = cv2.VideoCapture(0)
 prev_frame_time = 0
 frame_sequence = []
 
+# CSV to log events and times
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+csv_log = open(f'gesture_log_{timestamp}.csv', 'w', newline='')
+csv_writer = csv.writer(csv_log)
+csv_writer.writerow(['start_gesture_time', 'end_gesture_time', 'gesture_detected', 'send_time', 'move_start_time', 'fps'])
+
 print("Mulai pengujian... Tekan 'q' untuk keluar")
 
 while cap.isOpened():
@@ -80,6 +88,12 @@ while cap.isOpened():
     results = hands.process(rgb)
     image = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
 
+    start_gesture_time = None
+    end_gesture_time = None
+    send_time = None
+    move_start_time = None
+    gesture_detected = None
+
     if results.multi_hand_landmarks:
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(image, hand_landmarks, mp_hands.HAND_CONNECTIONS)
@@ -93,31 +107,55 @@ while cap.isOpened():
             frame_sequence = frame_sequence[-10:]  # pastikan selalu 10 frame
 
             if len(frame_sequence) == 10:
+                # Start Gesture Detection
+                start_gesture_time = time.time()
+
                 input_sequence = np.array([frame_sequence])
                 prediction = model.predict(input_sequence, verbose=0)
                 predicted_label_index = np.argmax(prediction)
                 predicted_label = label_encoder[predicted_label_index]
+
+                end_gesture_time = time.time()
+
+                gesture_detected = predicted_label
 
                 cv2.putText(image, f"Gesture: {predicted_label}", (10, 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
                 # Kirim ke ESP32 sesuai gesture
                 if predicted_label == 'Kanan':
+                    send_time = time.time()
                     s.send(b'E\n')
                 elif predicted_label == 'Kiri':
+                    send_time = time.time()
                     s.send(b'A\n')
                 elif predicted_label == 'Maju':
+                    send_time = time.time()
                     s.send(b'B\n')
                 elif predicted_label == 'Mundur':
+                    send_time = time.time()
                     s.send(b'D\n')
                 elif predicted_label == 'Stop':
+                    send_time = time.time()
                     s.send(b'C\n')
+
+                # Start wheelchair movement
+                if gesture_detected:
+                    move_start_time = time.time()
+
+                # Log the times and gesture to the CSV
+                csv_writer.writerow([start_gesture_time, end_gesture_time, gesture_detected, send_time, move_start_time, fps])
 
     # FPS
     fps = 1 / (new_frame_time - prev_frame_time) if new_frame_time - prev_frame_time != 0 else 0
     prev_frame_time = new_frame_time
+
+    # Display FPS on the frame
     cv2.putText(image, f'FPS: {int(fps)}', (10, 100),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+
+    # Print FPS to terminal
+    print(f"FPS: {int(fps)}")
 
     cv2.imshow("Testing Gesture Recognition", image)
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -125,3 +163,4 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+csv_log.close()
