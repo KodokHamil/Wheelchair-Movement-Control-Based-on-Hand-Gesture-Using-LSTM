@@ -141,7 +141,7 @@ ESP32 akan menerima karakter kontrol:
 
 ---
 
-## 🛠️ Ketergantungan
+## 🛠️ Requirements
 
 - Python 3.8+
 - OpenCV
