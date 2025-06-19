@@ -1,0 +1,1 @@
+start_gesture_time,end_gesture_time,predicted_label,true_label,is_correct,send_time,inference_time,fps

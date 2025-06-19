@@ -1,0 +1,16 @@
+SUMMARY AKURASI MODEL GESTURE RECOGNITION
+Mode Testing: 2
+Tanggal: 2025-06-03 16:41:04
+
+STATISTIK KESELURUHAN:
+Total Prediksi: 250
+Prediksi Benar: 240
+Prediksi Salah: 10
+Akurasi: 96.00%
+
+STATISTIK PER GESTURE:
+Maju: 46/50 = 92.00%
+Mundur: 50/50 = 100.00%
+Kanan: 44/50 = 88.00%
+Kiri: 50/50 = 100.00%
+Stop: 50/50 = 100.00%

@@ -24,9 +24,9 @@ hands = mp_hands.Hands(
 )
 
 # === Pengaturan Dataset ===
-DATA_PATH = 'dataset_tangan_kanan'
-gestures = ['Maju', 'Mundur', 'Kanan', 'Kiri', 'Stop', 'NA']
-current_gesture = 'NA'
+DATA_PATH = 'dataset_testing'
+gestures = ['Maju', 'Mundur', 'Kanan', 'Kiri', 'Stop',]
+current_gesture = 'Stop'
 sequence_length = 10
 sequence_counter = 0
 

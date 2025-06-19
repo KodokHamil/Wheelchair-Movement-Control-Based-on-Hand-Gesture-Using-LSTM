@@ -1,0 +1,2 @@
+start_gesture_time,end_gesture_time,gesture_detected,send_time,move_start_time,inference_time,delay,fps
+16:50:53.034,16:50:53.656,Stop,16:50:53.656,16:50:53.695,0.62293,0.038,1.51
